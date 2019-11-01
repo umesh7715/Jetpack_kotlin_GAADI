@@ -30,8 +30,6 @@ Glide is used for image loading and Timber for logging.
 Stetho is used to empower debugging skills (like Network calls log, Database content overview,
 UI Hierarchy view, etc).
 
-A sample app consist of 3 screens: List of LEGO® themes, list of sets and set details.
-
 Getting Started
 ---------------
 This project uses the Gradle build system. To build this project, use the
