@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_gaadi"
+    app:startDestination="@id/gaadiListFragment">
+
+    <fragment
+        android:id="@+id/gaadiListFragment"
+        android:name="com.example.kotlinwithjetpack.gaadi.ui.GaadiListFragment"
+        android:label="Gaadi List">
+        <action
+            android:id="@+id/action_gaadiListFragment_to_gaadiDetailFragment"
+            app:destination="@id/gaadiDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/gaadiDetailFragment"
+        android:name="com.example.kotlinwithjetpack.gaadi.ui.GaadiDetailFragment"
+        android:label="Gaadi Details">
+        <argument
+            android:name="gaadiDetails"
+            app:argType="com.example.kotlinwithjetpack.gaadi.data.Gaadi" />
+        <action
+            android:id="@+id/action_gaadiDetailFragment_to_contactFragment"
+            app:destination="@id/contactFragment" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/contactFragment"
+        android:name="com.example.kotlinwithjetpack.gaadi.ui.ContactFragment"
+        android:label="ContactFragment" />
+
+</navigation>
