@@ -7,17 +7,18 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
+import androidx.navigation.fragment.findNavController
 import com.example.kotlinwithjetpack.R
-import com.example.kotlinwithjetpack.databinding.FragmentGaadiListBinding
+import com.example.kotlinwithjetpack.databinding.FragmentMyGaadiListBinding
 import com.example.kotlinwithjetpack.di.Injectable
 import com.example.kotlinwithjetpack.di.injectViewModel
 import com.example.kotlinwithjetpack.ui.VerticalItemDecoration
 import com.example.kotlinwithjetpack.ui.hide
 import javax.inject.Inject
 
-class GaadiListFragment : Fragment(), Injectable {
+class MyGaadiListFragment : Fragment(), Injectable {
 
-    private lateinit var binding: FragmentGaadiListBinding
+    private lateinit var binding: FragmentMyGaadiListBinding
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -32,21 +33,27 @@ class GaadiListFragment : Fragment(), Injectable {
 
         viewModel = injectViewModel(viewModelFactory)
 
-        binding = FragmentGaadiListBinding.inflate(inflater, container, false)
+        binding = FragmentMyGaadiListBinding.inflate(inflater, container, false)
         context ?: return binding.root
 
-        val adapter = GaadiListAdapter("global")
+        val adapter = GaadiListAdapter("local")
         binding.gaadiRecyclerView.addItemDecoration(
                 VerticalItemDecoration(resources.getDimension(R.dimen.margin_normal).toInt(), true))
         binding.gaadiRecyclerView.adapter = adapter
 
         subscribeUi(binding, adapter)
 
+        binding.fabAddNewGaadi.setOnClickListener {
+            val direction = MyGaadiListFragmentDirections.actionMyAdFragmentToAddNewGaadiFragment()
+            findNavController().navigate(direction)
+
+        }
+
         return binding.root
     }
 
-    private fun subscribeUi(binding: FragmentGaadiListBinding, adapter: GaadiListAdapter) {
-        viewModel.gaadi.observe(viewLifecycleOwner) { result ->
+    private fun subscribeUi(binding: FragmentMyGaadiListBinding, adapter: GaadiListAdapter) {
+        viewModel.myGaadi.observe(viewLifecycleOwner) { result ->
             binding.progressBar.hide()
             adapter.submitList(result)
         }

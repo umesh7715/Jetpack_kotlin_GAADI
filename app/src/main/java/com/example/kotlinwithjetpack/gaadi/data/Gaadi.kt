@@ -11,13 +11,15 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "gaadi", indices = [Index(value = ["name", "sellerDetails"], unique = true)])
 data class Gaadi(@PrimaryKey(autoGenerate = true)
                  @field:SerializedName("id")
-                 val id: Int,
+                 val id: Int?,
                  @field:SerializedName("name")
                  val name: String,
                  @field:SerializedName("seller_details")
                  val sellerDetails: String,
                  @field:SerializedName("gaadi_details")
                  val gaadiDetails: String,
+                 @field:SerializedName("is_my_gaadi")
+                 val isMyGaadi: Int,
                  @field:SerializedName("images")
                  val images: List<String>) : Parcelable {
 
@@ -26,13 +28,15 @@ data class Gaadi(@PrimaryKey(autoGenerate = true)
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
+            parcel.readInt(),
             parcel.createStringArrayList())
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeInt(id)
+        id?.let { parcel.writeInt(it) }
         parcel.writeString(name)
         parcel.writeString(sellerDetails)
         parcel.writeString(gaadiDetails)
+        parcel.writeInt(isMyGaadi)
         parcel.writeStringList(images)
     }
 
@@ -49,5 +53,6 @@ data class Gaadi(@PrimaryKey(autoGenerate = true)
             return arrayOfNulls(size)
         }
     }
+
 
 }

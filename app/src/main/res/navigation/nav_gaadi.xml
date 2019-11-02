@@ -34,4 +34,34 @@
         android:name="com.example.kotlinwithjetpack.gaadi.ui.ContactFragment"
         android:label="ContactFragment" />
 
+    <fragment
+        android:id="@+id/myAdFragment"
+        android:name="com.example.kotlinwithjetpack.gaadi.ui.MyGaadiListFragment"
+        android:label="My Vehicles">
+
+        <action
+            android:id="@+id/action_myAdFragment_to_addNewGaadiFragment"
+            app:destination="@id/addNewGaadiFragment" />
+        <action
+            android:id="@+id/action_myAdFragment_to_gaadiDetailFragment"
+            app:destination="@id/gaadiDetailFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/addNewGaadiFragment"
+        android:name="com.example.kotlinwithjetpack.gaadi.ui.AddNewGaadiFragment"
+        android:label="Add New Gaadi" >
+        <action
+            android:id="@+id/action_addNewGaadiFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
+        <action
+            android:id="@+id/action_addNewGaadiFragment_to_myAdFragment"
+            app:destination="@id/myAdFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="com.example.kotlinwithjetpack.camera.CameraFragment"
+        android:label="CameraFragment" />
+
 </navigation>

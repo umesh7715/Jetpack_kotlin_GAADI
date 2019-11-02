@@ -21,5 +21,12 @@
     <string name="a11y_legoset_item_image">Picture of Lego Set</string>
     <string name="Vehicles" translatable="false">Vehicles</string>
     <string name="my_vehicles" translatable="false">My vehicles</string>
+    <string name="storage_permission_required">Permission required</string>
+    <string name="capture">Capture</string>
+    <string name="permission_rationale_title">Permission</string>
+    <string name="permission_rationale_message">Permission</string>
+    <string name="permission_rationale_settings_button_text">Try again</string>
+    <string name="permission_needed_titile">This permission is needed</string>
+    <string name="all_permissions_denied_feedback">Permissions denied</string>
 
 </resources>

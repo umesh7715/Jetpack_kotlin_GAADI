@@ -3,6 +3,7 @@ package com.example.kotlinwithjetpack.gaadi.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -11,7 +12,7 @@ import com.example.kotlinwithjetpack.databinding.ListItemGaadiBinding
 import com.example.kotlinwithjetpack.gaadi.data.Gaadi
 
 
-class GaadiListAdapter : ListAdapter<Gaadi, GaadiListAdapter.ViewHolder>(DiffCallback()) {
+class GaadiListAdapter(private val fromFragment: String) : ListAdapter<Gaadi, GaadiListAdapter.ViewHolder>(DiffCallback()) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val gaadi = getItem(position)
@@ -28,7 +29,12 @@ class GaadiListAdapter : ListAdapter<Gaadi, GaadiListAdapter.ViewHolder>(DiffCal
 
     private fun createOnClickListener(gaadi: Gaadi): View.OnClickListener {
         return View.OnClickListener {
-            val direction = GaadiListFragmentDirections.actionGaadiListFragmentToGaadiDetailFragment(gaadi)
+
+            var direction: NavDirections = if (fromFragment == "global") {
+                GaadiListFragmentDirections.actionGaadiListFragmentToGaadiDetailFragment(gaadi)
+            } else {
+                MyGaadiListFragmentDirections.actionMyAdFragmentToGaadiDetailFragment(gaadi)
+            }
             it.findNavController().navigate(direction)
         }
     }

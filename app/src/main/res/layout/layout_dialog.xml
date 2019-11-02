@@ -6,8 +6,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="5dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="5dp">
 
         <TextView
             android:id="@+id/textView4"
@@ -54,7 +54,11 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="message"
-            android:inputType="textPersonName"
+            android:inputType="textMultiLine"
+            android:minLines="5"
+            android:gravity="top"
+            android:maxLines="5"
+            android:singleLine="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toTopOf="@+id/textView8" />

@@ -1,8 +1,10 @@
 package com.example.kotlinwithjetpack.di
 
 
+import com.example.kotlinwithjetpack.gaadi.ui.AddNewGaadiFragment
 import com.example.kotlinwithjetpack.gaadi.ui.GaadiDetailFragment
 import com.example.kotlinwithjetpack.gaadi.ui.GaadiListFragment
+import com.example.kotlinwithjetpack.gaadi.ui.MyGaadiListFragment
 import com.example.kotlinwithjetpack.legoset.ui.LegoSetFragment
 import com.example.kotlinwithjetpack.legoset.ui.LegoSetsFragment
 import com.example.kotlinwithjetpack.legotheme.ui.LegoThemeFragment
@@ -23,6 +25,12 @@ abstract class FragmentBuildersModule {
 
     @ContributesAndroidInjector
     abstract fun contributeGaadiListFragment(): GaadiListFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeMyGaadiListFragment(): MyGaadiListFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeAddNewGaadiFragment(): AddNewGaadiFragment
 
     @ContributesAndroidInjector
     abstract fun contributeGaadiDetailsFragment(): GaadiDetailFragment
