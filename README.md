@@ -1,13 +1,3 @@
-LEGO® Catalog
-=========================
-
-A LEGO® Catalog app illustrating current Android Architecture state using Android development best
-practices.
-
-[To get started you can find project and Architecture overview in the Medium article](https://medium.com/@eli.fox/android-architecture-starring-kotlin-coroutines-jetpack-mvvm-room-paging-retrofit-and-dagger-7749b2bae5f7?sk=9c5a7af2fbf5d4a04e72322bfb245489). 
-
-NOTE: LEGO® and the LEGO® logo are trademarks of the LEGO® Group, which does not sponsor, authorize
-or endorse this app.
 
 Introduction
 ------------
@@ -40,8 +30,6 @@ Glide is used for image loading and Timber for logging.
 Stetho is used to empower debugging skills (like Network calls log, Database content overview,
 UI Hierarchy view, etc).
 
-A sample app consist of 3 screens: List of LEGO® themes, list of sets and set details.
-
 Getting Started
 ---------------
 This project uses the Gradle build system. To build this project, use the
@@ -51,12 +39,6 @@ There are two Gradle tasks for testing the project:
 * `connectedAndroidTest` - for running Espresso on a connected device
 * `test` - for running unit tests
 
-Screenshots
------------
-
-![LegoThemeFragment](screenshots/phone_legotheme.png "Browse Themes ")
-![LegoSetsFragment Grid](screenshots/phone_legosets_grid.png "Browse sets in grid view")
-![LegoSetFragment](screenshots/phone_legoset.png "Lego set")
 
 Libraries Used
 --------------
