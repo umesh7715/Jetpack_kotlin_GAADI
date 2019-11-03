@@ -1,6 +1,5 @@
 package com.example.kotlinwithjetpack.gaadi.ui
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -75,11 +74,8 @@ class AddNewGaadiFragment : Fragment(), Injectable {
             }
 
 
-
-            viewModel.saveGaadi(Gaadi(null, vehicleName, sellerDteials, vehicleDetails, 1, listOf("https://cdn.rebrickable.com/media/sets/30213-1.jpg", "https://cdn.rebrickable.com/media/sets/30213-1.jpg")))
-            fragmentManager?.popBackStack()
-            val action = AddNewGaadiFragmentDirections.actionAddNewGaadiFragmentToMyAdFragment()
-            findNavController().navigate(action)
+            viewModel.saveGaadi(Gaadi(null, vehicleName, sellerDteials, vehicleDetails, 1, listOf("https://www.trzcacak.rs/myfile/full/284-2847835_2019-toyota-tacoma-placeholder-car-png.png", "https://www.trzcacak.rs/myfile/full/284-2847835_2019-toyota-tacoma-placeholder-car-png.png")))
+            findNavController().navigateUp()
 
         }
 

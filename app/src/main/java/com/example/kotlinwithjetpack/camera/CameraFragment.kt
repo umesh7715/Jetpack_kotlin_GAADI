@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.kotlinwithjetpack.R
 import com.example.kotlinwithjetpack.permisionUtilities.PermissionCallbacks
 import com.example.kotlinwithjetpack.permisionUtilities.PermissionsUtility
@@ -63,8 +64,7 @@ class CameraFragment : Fragment() {
             cameraUtility = activity?.let {
                 fun onCapture(filePath: @ParameterName(name = "filePath") String, rotation: @ParameterName(name = "rotation") Float) {
 
-                    var intent = Intent()
-                    intent.putExtra("path", filePath)
+                    findNavController().navigateUp()
 
                 }
                 CameraUtility(it, cameraTextureView, ::onCapture)
